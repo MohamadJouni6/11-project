@@ -3,25 +3,29 @@
 {% block title %}Register{% endblock %}
 
 {% block main %}
-<form action ="/register" method="POST">
-	<div>
-		<input type="text" name="username" autofocus autocomplete="off" required placeholder="Username">
+<form action="/register" method="POST">
+	{{ form.hidden_tag() }}
+	<div class="mb-3">
+	{{ form.username.label(class="form-label") }}
+	{{ form.username(class="form-control") }}
 	</div>
-	<br>
-	<div>
-		<input type="password" name="password" autocomplete="off" required placeholder="Password">
+	<div class="mb-3">
+		{{ form.email.label(class="form-label") }}
+		{{ form.email(class="form-control") }}
+		<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 	</div>
-	<br>
-	<div>
-		<input type="password" name="confirm" autocomplete="off" required placeholder="Confirm Password">
+	<div class="mb-3">
+		{{ form.password.label(class="form-label") }}
+		{{ form.password(class="form-control") }}
 	</div>
-	<br>
-	<div>
-		<input type="submit" value="Register">
+	<div class="mb-3">
+		{{ form.confirmation.label(class="form-label") }}
+		{{ form.confirmation(class="form-control") }}
 	</div>
+	{{ form.submit(class=btn btn-primary) }}
 </form>
 <br>
 <div>
-	<p>Already Have an Account? <a href="login.html">Login</a></p>
+	<p>Already Have an Account? <a href="login">Login</a></p>
 </div>
 {% endblock %}

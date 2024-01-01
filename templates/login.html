@@ -4,20 +4,19 @@
 
 {% block main %}
   <form action ="/login" method="POST">
-		<div>
-      <input type="text" name="username" autofocus autocomplete="off" required placeholder="Username">
+		<div class="mb-3">	
+			{{ form.hidden_tag() }}
+			{{ form.username.label(class="form-label") }}
+			{{ form.username(class="form-control") }}
 		</div>
-		<br>
-		<div>
-			<input type="password" name="password" autocomplete="off" required placeholder="Password">
+		<div class="mb-3">
+			{{ form.password.label(class="form-label") }}
+			{{ form.password(class="form-control") }}
 		</div>
-		<br>
-		<div>
-			<input type="submit" value="Login">
-		</div>
+		{{ form.submit(class="btn btn-primary") }}
 	</form>
 	<br>
 	<div>
-		<p>You Dont Have an Account? <a href="register.html">Sign up</a></p>
+		<p>You Dont Have an Account? <a href="register">Sign up</a></p>
 	</div>
 {% endblock %}
